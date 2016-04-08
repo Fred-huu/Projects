@@ -104,7 +104,7 @@ Partial Class admin
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
         Me.wPanel = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.selectButton = New System.Windows.Forms.Button()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -114,7 +114,7 @@ Partial Class admin
         Me.cmPanel = New System.Windows.Forms.Panel()
         Me.cmTextBox = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.carselectButton = New System.Windows.Forms.Button()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TextBox16 = New System.Windows.Forms.TextBox()
         Me.TextBox17 = New System.Windows.Forms.TextBox()
@@ -132,7 +132,7 @@ Partial Class admin
         Me.TextBox18 = New System.Windows.Forms.TextBox()
         Me.dmTextBox = New System.Windows.Forms.TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.driverselectButton = New System.Windows.Forms.Button()
         Me.TextBox23 = New System.Windows.Forms.TextBox()
         Me.TextBox22 = New System.Windows.Forms.TextBox()
         Me.TextBox21 = New System.Windows.Forms.TextBox()
@@ -146,11 +146,11 @@ Partial Class admin
         Me.Label35 = New System.Windows.Forms.Label()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.caddPanel = New System.Windows.Forms.Panel()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.pictureButton = New System.Windows.Forms.Button()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.carPictureBox = New System.Windows.Forms.PictureBox()
-        Me.clearLinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.clearLinkLabel = New System.Windows.Forms.LinkLabel()
+        Me.carupdateButton = New System.Windows.Forms.Button()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.TextBox27 = New System.Windows.Forms.TextBox()
         Me.TextBox28 = New System.Windows.Forms.TextBox()
@@ -168,7 +168,7 @@ Partial Class admin
         Me.OpenDlg = New System.Windows.Forms.OpenFileDialog()
         Me.daddPanel = New System.Windows.Forms.Panel()
         Me.clearLinkLabel2 = New System.Windows.Forms.LinkLabel()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.driverupdateButton = New System.Windows.Forms.Button()
         Me.TextBox34 = New System.Windows.Forms.TextBox()
         Me.TextBox33 = New System.Windows.Forms.TextBox()
         Me.TextBox32 = New System.Windows.Forms.TextBox()
@@ -1163,7 +1163,7 @@ Partial Class admin
         '
         'wPanel
         '
-        Me.wPanel.Controls.Add(Me.Button3)
+        Me.wPanel.Controls.Add(Me.selectButton)
         Me.wPanel.Controls.Add(Me.ListView1)
         Me.wPanel.Controls.Add(Me.PictureBox3)
         Me.wPanel.Location = New System.Drawing.Point(200, 0)
@@ -1171,15 +1171,15 @@ Partial Class admin
         Me.wPanel.Size = New System.Drawing.Size(1060, 560)
         Me.wPanel.TabIndex = 107
         '
-        'Button3
+        'selectButton
         '
-        Me.Button3.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button3.Location = New System.Drawing.Point(483, 512)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(94, 33)
-        Me.Button3.TabIndex = 107
-        Me.Button3.Text = "查询"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.selectButton.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.selectButton.Location = New System.Drawing.Point(483, 512)
+        Me.selectButton.Name = "selectButton"
+        Me.selectButton.Size = New System.Drawing.Size(94, 33)
+        Me.selectButton.TabIndex = 107
+        Me.selectButton.Text = "查询"
+        Me.selectButton.UseVisualStyleBackColor = True
         '
         'ListView1
         '
@@ -1231,7 +1231,7 @@ Partial Class admin
         '
         Me.cmPanel.Controls.Add(Me.cmTextBox)
         Me.cmPanel.Controls.Add(Me.Label12)
-        Me.cmPanel.Controls.Add(Me.Button4)
+        Me.cmPanel.Controls.Add(Me.carselectButton)
         Me.cmPanel.Controls.Add(Me.Label26)
         Me.cmPanel.Controls.Add(Me.TextBox16)
         Me.cmPanel.Controls.Add(Me.TextBox17)
@@ -1269,15 +1269,15 @@ Partial Class admin
         Me.Label12.TabIndex = 147
         Me.Label12.Text = "请输入需要查询的汽车的车牌号"
         '
-        'Button4
+        'carselectButton
         '
-        Me.Button4.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button4.Location = New System.Drawing.Point(508, 218)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(94, 33)
-        Me.Button4.TabIndex = 146
-        Me.Button4.Text = "确定"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.carselectButton.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.carselectButton.Location = New System.Drawing.Point(508, 218)
+        Me.carselectButton.Name = "carselectButton"
+        Me.carselectButton.Size = New System.Drawing.Size(94, 33)
+        Me.carselectButton.TabIndex = 146
+        Me.carselectButton.Text = "确定"
+        Me.carselectButton.UseVisualStyleBackColor = True
         '
         'Label26
         '
@@ -1406,7 +1406,7 @@ Partial Class admin
         Me.dmPanel.Controls.Add(Me.TextBox18)
         Me.dmPanel.Controls.Add(Me.dmTextBox)
         Me.dmPanel.Controls.Add(Me.Label29)
-        Me.dmPanel.Controls.Add(Me.Button5)
+        Me.dmPanel.Controls.Add(Me.driverselectButton)
         Me.dmPanel.Controls.Add(Me.TextBox23)
         Me.dmPanel.Controls.Add(Me.TextBox22)
         Me.dmPanel.Controls.Add(Me.TextBox21)
@@ -1451,15 +1451,15 @@ Partial Class admin
         Me.Label29.TabIndex = 143
         Me.Label29.Text = "请输入需要查询的司机的驾驶证号"
         '
-        'Button5
+        'driverselectButton
         '
-        Me.Button5.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button5.Location = New System.Drawing.Point(498, 193)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(94, 33)
-        Me.Button5.TabIndex = 142
-        Me.Button5.Text = "确定"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.driverselectButton.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.driverselectButton.Location = New System.Drawing.Point(498, 193)
+        Me.driverselectButton.Name = "driverselectButton"
+        Me.driverselectButton.Size = New System.Drawing.Size(94, 33)
+        Me.driverselectButton.TabIndex = 142
+        Me.driverselectButton.Text = "确定"
+        Me.driverselectButton.UseVisualStyleBackColor = True
         '
         'TextBox23
         '
@@ -1569,11 +1569,11 @@ Partial Class admin
         '
         'caddPanel
         '
-        Me.caddPanel.Controls.Add(Me.Button7)
+        Me.caddPanel.Controls.Add(Me.pictureButton)
         Me.caddPanel.Controls.Add(Me.Label36)
         Me.caddPanel.Controls.Add(Me.carPictureBox)
-        Me.caddPanel.Controls.Add(Me.clearLinkLabel1)
-        Me.caddPanel.Controls.Add(Me.Button6)
+        Me.caddPanel.Controls.Add(Me.clearLinkLabel)
+        Me.caddPanel.Controls.Add(Me.carupdateButton)
         Me.caddPanel.Controls.Add(Me.Label37)
         Me.caddPanel.Controls.Add(Me.TextBox27)
         Me.caddPanel.Controls.Add(Me.TextBox28)
@@ -1593,16 +1593,16 @@ Partial Class admin
         Me.caddPanel.Size = New System.Drawing.Size(1060, 481)
         Me.caddPanel.TabIndex = 107
         '
-        'Button7
+        'pictureButton
         '
-        Me.Button7.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button7.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button7.Location = New System.Drawing.Point(716, 433)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(94, 33)
-        Me.Button7.TabIndex = 127
-        Me.Button7.Text = "浏览"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.pictureButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.pictureButton.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.pictureButton.Location = New System.Drawing.Point(716, 433)
+        Me.pictureButton.Name = "pictureButton"
+        Me.pictureButton.Size = New System.Drawing.Size(94, 33)
+        Me.pictureButton.TabIndex = 127
+        Me.pictureButton.Text = "浏览"
+        Me.pictureButton.UseVisualStyleBackColor = True
         '
         'Label36
         '
@@ -1625,25 +1625,25 @@ Partial Class admin
         Me.carPictureBox.TabIndex = 125
         Me.carPictureBox.TabStop = False
         '
-        'clearLinkLabel1
+        'clearLinkLabel
         '
-        Me.clearLinkLabel1.AutoSize = True
-        Me.clearLinkLabel1.Location = New System.Drawing.Point(346, 329)
-        Me.clearLinkLabel1.Name = "clearLinkLabel1"
-        Me.clearLinkLabel1.Size = New System.Drawing.Size(80, 18)
-        Me.clearLinkLabel1.TabIndex = 114
-        Me.clearLinkLabel1.TabStop = True
-        Me.clearLinkLabel1.Text = "清除数据"
+        Me.clearLinkLabel.AutoSize = True
+        Me.clearLinkLabel.Location = New System.Drawing.Point(346, 329)
+        Me.clearLinkLabel.Name = "clearLinkLabel"
+        Me.clearLinkLabel.Size = New System.Drawing.Size(80, 18)
+        Me.clearLinkLabel.TabIndex = 114
+        Me.clearLinkLabel.TabStop = True
+        Me.clearLinkLabel.Text = "清除数据"
         '
-        'Button6
+        'carupdateButton
         '
-        Me.Button6.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button6.Location = New System.Drawing.Point(345, 380)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(94, 33)
-        Me.Button6.TabIndex = 115
-        Me.Button6.Text = "上传"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.carupdateButton.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.carupdateButton.Location = New System.Drawing.Point(345, 380)
+        Me.carupdateButton.Name = "carupdateButton"
+        Me.carupdateButton.Size = New System.Drawing.Size(94, 33)
+        Me.carupdateButton.TabIndex = 115
+        Me.carupdateButton.Text = "上传"
+        Me.carupdateButton.UseVisualStyleBackColor = True
         '
         'Label37
         '
@@ -1779,7 +1779,7 @@ Partial Class admin
         'daddPanel
         '
         Me.daddPanel.Controls.Add(Me.clearLinkLabel2)
-        Me.daddPanel.Controls.Add(Me.Button8)
+        Me.daddPanel.Controls.Add(Me.driverupdateButton)
         Me.daddPanel.Controls.Add(Me.TextBox34)
         Me.daddPanel.Controls.Add(Me.TextBox33)
         Me.daddPanel.Controls.Add(Me.TextBox32)
@@ -1809,15 +1809,15 @@ Partial Class admin
         Me.clearLinkLabel2.TabStop = True
         Me.clearLinkLabel2.Text = "清除数据"
         '
-        'Button8
+        'driverupdateButton
         '
-        Me.Button8.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button8.Location = New System.Drawing.Point(474, 428)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(94, 33)
-        Me.Button8.TabIndex = 112
-        Me.Button8.Text = "上传"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.driverupdateButton.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.driverupdateButton.Location = New System.Drawing.Point(474, 428)
+        Me.driverupdateButton.Name = "driverupdateButton"
+        Me.driverupdateButton.Size = New System.Drawing.Size(94, 33)
+        Me.driverupdateButton.TabIndex = 112
+        Me.driverupdateButton.Text = "上传"
+        Me.driverupdateButton.UseVisualStyleBackColor = True
         '
         'TextBox34
         '
@@ -2267,9 +2267,9 @@ Partial Class admin
         Me.版本信息Label.AutoSize = True
         Me.版本信息Label.Location = New System.Drawing.Point(110, 385)
         Me.版本信息Label.Name = "版本信息Label"
-        Me.版本信息Label.Size = New System.Drawing.Size(116, 18)
+        Me.版本信息Label.Size = New System.Drawing.Size(98, 18)
         Me.版本信息Label.TabIndex = 110
-        Me.版本信息Label.Text = "2.5.2016-4-6"
+        Me.版本信息Label.Text = "2.5.16.4.8"
         '
         '人员姓名Label
         '
@@ -2589,8 +2589,8 @@ Partial Class admin
         Me.Controls.Add(Me.messPanel)
         Me.Controls.Add(Me.time)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.suggestPanel)
         Me.Controls.Add(Me.aboutPanel)
+        Me.Controls.Add(Me.suggestPanel)
         Me.Controls.Add(Me.loginPanel)
         Me.Controls.Add(Me.newuserPanel)
         Me.Controls.Add(Me.adminPanel)
@@ -2755,7 +2755,7 @@ Partial Class admin
     Friend WithEvents addcmess0 As PictureBox
     Friend WithEvents wPanel As Panel
     Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents selectButton As Button
     Friend WithEvents ListView1 As ListView
     Friend WithEvents ColumnHeader1 As ColumnHeader
     Friend WithEvents ColumnHeader2 As ColumnHeader
@@ -2765,7 +2765,7 @@ Partial Class admin
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents cmTextBox As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents Button4 As Button
+    Friend WithEvents carselectButton As Button
     Friend WithEvents Label26 As Label
     Friend WithEvents TextBox16 As TextBox
     Friend WithEvents TextBox17 As TextBox
@@ -2783,7 +2783,7 @@ Partial Class admin
     Friend WithEvents TextBox18 As TextBox
     Friend WithEvents dmTextBox As TextBox
     Friend WithEvents Label29 As Label
-    Friend WithEvents Button5 As Button
+    Friend WithEvents driverselectButton As Button
     Friend WithEvents TextBox23 As TextBox
     Friend WithEvents TextBox22 As TextBox
     Friend WithEvents TextBox21 As TextBox
@@ -2799,8 +2799,8 @@ Partial Class admin
     Friend WithEvents adddmess1 As PictureBox
     Friend WithEvents caddPanel As Panel
     Friend WithEvents PictureBox7 As PictureBox
-    Friend WithEvents clearLinkLabel1 As LinkLabel
-    Friend WithEvents Button6 As Button
+    Friend WithEvents clearLinkLabel As LinkLabel
+    Friend WithEvents carupdateButton As Button
     Friend WithEvents Label37 As Label
     Friend WithEvents TextBox27 As TextBox
     Friend WithEvents TextBox28 As TextBox
@@ -2818,7 +2818,7 @@ Partial Class admin
     Friend WithEvents daddPanel As Panel
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents clearLinkLabel2 As LinkLabel
-    Friend WithEvents Button8 As Button
+    Friend WithEvents driverupdateButton As Button
     Friend WithEvents TextBox34 As TextBox
     Friend WithEvents TextBox33 As TextBox
     Friend WithEvents TextBox32 As TextBox
@@ -2879,7 +2879,7 @@ Partial Class admin
     Friend WithEvents PictureBox15 As PictureBox
     Friend WithEvents 开发人员PictureBox As PictureBox
     Friend WithEvents PictureBox13 As PictureBox
-    Friend WithEvents Button7 As Button
+    Friend WithEvents pictureButton As Button
     Friend WithEvents Label36 As Label
     Friend WithEvents carPictureBox As PictureBox
     Friend WithEvents loginPanel As Panel

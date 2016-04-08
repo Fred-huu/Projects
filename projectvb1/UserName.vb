@@ -15,7 +15,10 @@ Public Class UserName
             conn.Open()
             com = New MySqlCommand("Select * From 用户 Where 账号='" & TextBox1.Text & "'", conn)
             dr = com.ExecuteReader()
-            If dr.Read() Then ' 表示有找到通过验证
+            If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Or TextBox4.Text = "" Or TextBox5.Text = "" Then
+                'MessageBox.Show("有数据没有输入，请输入!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("笨蛋，数据都没输完，激动什么!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf dr.Read() Then ' 表示有找到通过验证
                 'MessageBox.Show("账号已被注册，请重新输入!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 MessageBox.Show("笨蛋，这个账号已被注册，快重新想一个!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 TextBox1.Text = ""

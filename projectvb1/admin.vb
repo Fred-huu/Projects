@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿'导入各种库
+Imports MySql.Data.MySqlClient
 
 Imports System
 Imports System.Threading
@@ -7,6 +8,8 @@ Imports System.ComponentModel
 Imports System.IO
 
 Public Class admin
+    '定义全局变量
+
     '数据库
     Dim conn As MySqlConnection
     Dim data As DataTable
@@ -91,6 +94,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
     '-------------------------------------------
 
     '登录界面
+    '确定按钮
     Private Sub entryButton_Click(sender As Object, e As EventArgs) Handles entryButton.Click
         '数据库操作
         Dim dr As MySqlDataReader
@@ -117,16 +121,19 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     End Sub
 
+    '取消按钮
     Private Sub offButton_Click(sender As Object, e As EventArgs) Handles offButton.Click
         Me.Close()
     End Sub
 
+    '忘记密码
     Private Sub 忘记密码LinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles 忘记密码LinkLabel.LinkClicked
         MessageBox.Show("密码忘啦？！快让我们一起找回密码！")
         MessageBox.Show("其实啦...我也不知道怎样找回密码！这个功能还没有做出来！当然我也不打算错 (￣▽￣)~*这个键其实没什么用处！（不服来打我啊！）但是，有句话我想对你说：")
         MessageBox.Show("你密码忘了关我屁事！怪我咯！你这个笨蛋！ ╮(￣▽￣)╭")
     End Sub
 
+    '注册
     Private Sub 账号注册LinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles 账号注册LinkLabel.LinkClicked
         '进入注册界面
         newuserPanel.Visible = True
@@ -153,7 +160,11 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
             conn.Open()
             com = New MySqlCommand("Select * From 用户 Where 账号='" & newuserTextBox.Text & "'", conn)
             dr = com.ExecuteReader()
-            If dr.Read() Then ' 表示有找到通过验证
+
+            If newnameTextBox.Text = "" Or newuserTextBox.Text = "" Or newpasswTextBox.Text = "" Or newapasswTextBox.Text = "" Or newapasswTextBox.Text = "" Then
+                'MessageBox.Show("有数据没有输入，请输入!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("笨蛋，数据都没输完，激动什么!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf dr.Read() Then ' 表示有找到通过验证
                 'MessageBox.Show("账号已被注册，请重新输入!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 MessageBox.Show("笨蛋，这个账号已被注册，快重新想一个!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 newuserTextBox.Text = ""
@@ -209,6 +220,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
     '-------------------------------------------
 
     '管理界面
+    '点击“管理界面”（未选中）
     Private Sub admin0_Click(sender As Object, e As EventArgs) Handles admin0.Click
         '二级菜单
         messPanel.Visible = False
@@ -338,7 +350,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         End If
     End Sub
 
-    '上传至数据库
+    '上传按钮
     Private Sub updateButton_Click(sender As Object, e As EventArgs) Handles updateButton.Click
         Dim com As MySqlCommand
         Dim dr As MySqlDataReader
@@ -360,7 +372,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     End Sub
 
-    '复位
+    '复位键
     Private Sub 复位LinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles 复位LinkLabel.LinkClicked
         TextBox1.Text = ""
         TextBox2.Text = ""
@@ -378,11 +390,13 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         ComboBox2.Text = ""
     End Sub
 
-    '修改车牌号
+    '修改车牌号界面
+    '打开修改界面
     Private Sub 修改LinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles 修改LinkLabel.LinkClicked
         modifyPanel.Visible = True
     End Sub
 
+    '确定修改车牌号
     Private Sub OK_Click(sender As Object, e As EventArgs) Handles OK.Click
         Dim com As MySqlCommand
         Dim dr As MySqlDataReader
@@ -447,13 +461,15 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         End If
     End Sub
 
+    '取消修改
     Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
         modifyPanel.Visible = False
     End Sub
 
     '-------------------------------------------
 
-    '信息查询
+    '信息查询界面
+    '点击“信息查询”（未选中）
     Private Sub mess0_Click(sender As Object, e As EventArgs) Handles mess0.Click
         '二级菜单
         wmess0.Visible = True
@@ -481,6 +497,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         including1.Visible = False
     End Sub
 
+    '点击“信息查询”（选中）
     Private Sub mess1_Click(sender As Object, e As EventArgs) Handles mess1.Click
         If messPanel.Visible = True Then
             messPanel.Visible = False
@@ -491,7 +508,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '称量信息查询
+    '称量信息查询界面
+    '点击“称量信息查询界面”（未选中）
     Private Sub wmess0_Click(sender As Object, e As EventArgs) Handles wmess0.Click
         '二级菜单
         wmess0.Visible = False
@@ -517,11 +535,13 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = False
     End Sub
 
+    '点击“称量信息查询界面”（选中）
     Private Sub wmess1_Click(sender As Object, e As EventArgs) Handles wmess1.Click
         messPanel.Visible = False
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    '查询按钮
+    Private Sub selectButton_Click(sender As Object, e As EventArgs) Handles selectButton.Click
         Dim com As MySqlCommand
         Dim i As Integer
         Dim TABLE As New DataTable
@@ -556,7 +576,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '车辆信息查询
+    '车辆信息查询界面
+    '点击“车辆信息查询界面”（未选中）
     Private Sub cmess0_Click(sender As Object, e As EventArgs) Handles cmess0.Click
         '二级菜单
         wmess0.Visible = True
@@ -582,11 +603,13 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = False
     End Sub
 
+    '点击“车辆信息查询界面”（选中）
     Private Sub cmess1_Click(sender As Object, e As EventArgs) Handles cmess1.Click
         messPanel.Visible = False
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    '查询按钮
+    Private Sub carselectButton_Click(sender As Object, e As EventArgs) Handles carselectButton.Click
         If cmTextBox.Text <> "" Then
             TextBox13.Text = ""
             TextBox14.Text = ""
@@ -620,7 +643,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '司机信息查询
+    '司机信息查询界面
+    '点击“司机信息查询界面”（未选中）
     Private Sub dmess0_Click(sender As Object, e As EventArgs) Handles dmess0.Click
         '二级菜单
         wmess0.Visible = True
@@ -646,11 +670,13 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = False
     End Sub
 
+    '点击“司机信息查询界面”（选中）
     Private Sub dmess1_Click(sender As Object, e As EventArgs) Handles dmess1.Click
         messPanel.Visible = False
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    '查询按钮
+    Private Sub driverselectButton_Click(sender As Object, e As EventArgs) Handles driverselectButton.Click
         If dmTextBox.Text <> "" Then
             TextBox18.Text = ""
             TextBox19.Text = ""
@@ -687,7 +713,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '信息录入
+    '信息录入界面
+    '点击“信息录入界面”（未选中）
     Private Sub add0_Click(sender As Object, e As EventArgs) Handles add0.Click
         '二级菜单
         addcmess0.Visible = True
@@ -713,6 +740,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         including1.Visible = False
     End Sub
 
+    '点击“信息录入界面”（选中）
     Private Sub add1_Click(sender As Object, e As EventArgs) Handles add1.Click
         If addPanel.Visible = True Then
             addPanel.Visible = False
@@ -723,7 +751,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '车辆信息录入
+    '车辆信息录入界面
+    '点击“车辆信息录入界面”（未选中）
     Private Sub addcmess0_Click(sender As Object, e As EventArgs) Handles addcmess0.Click
         '二级菜单
         addcmess0.Visible = False
@@ -747,12 +776,14 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = False
     End Sub
 
+    '点击“车辆信息录入界面”（选中）
     Private Sub addcmess1_Click(sender As Object, e As EventArgs) Handles addcmess1.Click
         addPanel.Visible = False
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        'Insert image to database
+    '上传按钮
+    Private Sub carupdateButton_Click(sender As Object, e As EventArgs) Handles carupdateButton.Click
+        '插入图片
         ' Dim mstream As New System.IO.MemoryStream()
         'PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
         'Dim arrImage() As Byte = mstream.GetBuffer()
@@ -779,8 +810,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         End Try
     End Sub
 
-    '照片添加
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+    '照片添加按钮
+    Private Sub pictureButton_Click(sender As Object, e As EventArgs) Handles pictureButton.Click
         OpenDlg.Filter = "图片文件(*.jpg,*.gif,*.bmp)|*.jpg|*.gif|*.bmp"  '这是限定图片的格式
         If OpenDlg.ShowDialog() = DialogResult.OK Then
             Me.carPictureBox.Image = Image.FromFile(OpenDlg.FileName)
@@ -788,7 +819,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
     End Sub
 
     '清空数据
-    Private Sub clearLinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles clearLinkLabel1.LinkClicked
+    Private Sub clearLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles clearLinkLabel.LinkClicked
         '清空数据
         TextBox24.Text = ""
         TextBox25.Text = ""
@@ -799,7 +830,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '司机信息录入
+    '司机信息录入界面
+    '点击“司机信息录入界面”（未选中）
     Private Sub adddmess0_Click(sender As Object, e As EventArgs) Handles adddmess0.Click
         '二级菜单
         addcmess0.Visible = True
@@ -823,11 +855,13 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = False
     End Sub
 
+    '点击“司机信息录入界面”（选中）
     Private Sub adddmess1_Click(sender As Object, e As EventArgs) Handles adddmess1.Click
         addPanel.Visible = False
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+    '上传按钮
+    Private Sub driverupdateButton_Click(sender As Object, e As EventArgs) Handles driverupdateButton.Click
         Dim com As MySqlCommand
         Dim dr As MySqlDataReader
 
@@ -861,7 +895,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '个人中心
+    '个人中心界面
+    '点击“个人中心界面”（未选中）
     Private Sub user0_Click(sender As Object, e As EventArgs) Handles user0.Click
         '二级菜单
         usermess0.Visible = True
@@ -887,6 +922,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         including1.Visible = False
     End Sub
 
+    '点击“个人中心界面”（选中）
     Private Sub user1_Click(sender As Object, e As EventArgs) Handles user1.Click
         If userPanel.Visible = True Then
             userPanel.Visible = False
@@ -897,7 +933,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '用户信息
+    '用户信息界面
+    '点击“用户信息界面”（未选中）
     Private Sub usermess0_Click(sender As Object, e As EventArgs) Handles usermess0.Click
         '二级菜单
         usermess0.Visible = False
@@ -929,10 +966,12 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     End Sub
 
+    '点击“用户信息界面”（选中）
     Private Sub usermess1_Click(sender As Object, e As EventArgs) Handles usermess1.Click
         userPanel.Visible = False
     End Sub
 
+    '“用户信息界面”数据展现
     Private Sub usermessPanel_Paint(sender As Object, e As PaintEventArgs) Handles usermessPanel.Paint
         Dim com As MySqlCommand
         Dim dr As MySqlDataReader
@@ -955,7 +994,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         End Try
     End Sub
 
-    '注销
+    '注销账号
     Private Sub signoutLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles signoutLinkLabel.LinkClicked
         MsgBox("常来玩啊！我会想念你的！(≧ω≦)")
         loginPanel.Visible = True
@@ -965,7 +1004,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '修改密码
+    '修改密码界面
+    '点击“修改密码界面”（未选中）
     Private Sub PWD0_Click(sender As Object, e As EventArgs) Handles PWD0.Click
         '二级菜单
         usermess0.Visible = True
@@ -989,10 +1029,12 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = False
     End Sub
 
+    '点击“修改密码界面”（选中）
     Private Sub PWD1_Click(sender As Object, e As EventArgs) Handles PWD1.Click
         userPanel.Visible = False
     End Sub
 
+    '确认修改密码
     Private Sub pwdOK_Click(sender As Object, e As EventArgs) Handles pwdOK.Click
         '数据库操作
         Dim com As MySqlCommand
@@ -1069,7 +1111,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '系统说明
+    '系统说明界面
+    '点击“系统说明界面”（未选中）
     Private Sub including0_Click(sender As Object, e As EventArgs) Handles including0.Click
         '二级菜单
         help0.Visible = True
@@ -1097,6 +1140,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         including1.Visible = True
     End Sub
 
+    '点击“系统说明界面”（选中）
     Private Sub including1_Click(sender As Object, e As EventArgs) Handles including1.Click
         If includingPanel.Visible = True Then
             includingPanel.Visible = False
@@ -1107,7 +1151,8 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
 
     '-------------------------------------------
 
-    '使用帮助
+    '使用帮助界面
+    '点击“使用帮助界面”（未选中）
     Private Sub help0_Click(sender As Object, e As EventArgs) Handles help0.Click
         '二级菜单
         help0.Visible = False
@@ -1133,13 +1178,15 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = False
     End Sub
 
+    '点击“使用帮助界面”（选中）
     Private Sub help1_Click(sender As Object, e As EventArgs) Handles help1.Click
         includingPanel.Visible = False
     End Sub
 
     '-------------------------------------------
 
-    '意见反馈
+    '意见反馈界面
+    '点击“意见反馈界面”（未选中）
     Private Sub suggest0_Click(sender As Object, e As EventArgs) Handles suggest0.Click
         '二级菜单
         help0.Visible = True
@@ -1165,13 +1212,15 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = False
     End Sub
 
+    '点击“意见反馈界面”（选中）
     Private Sub suggest1_Click(sender As Object, e As EventArgs) Handles suggest1.Click
         includingPanel.Visible = False
     End Sub
 
     '-------------------------------------------
 
-    '关于
+    '关于界面
+    '点击“关于界面”（未选中）
     Private Sub about0_Click(sender As Object, e As EventArgs) Handles about0.Click
         '二级菜单
         help0.Visible = True
@@ -1197,6 +1246,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         aboutPanel.Visible = True
     End Sub
 
+    '点击“关于界面”（选中）
     Private Sub about1_Click(sender As Object, e As EventArgs) Handles about1.Click
         includingPanel.Visible = False
     End Sub
