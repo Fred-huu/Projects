@@ -55,7 +55,7 @@ Partial Class admin
         Me.addcmess0 = New System.Windows.Forms.PictureBox()
         Me.addcmess1 = New System.Windows.Forms.PictureBox()
         Me.adddmess1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.downPictureBox = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.time = New System.Windows.Forms.Label()
         Me.adminPanel = New System.Windows.Forms.Panel()
@@ -272,7 +272,7 @@ Partial Class admin
         CType(Me.addcmess0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.addcmess1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.adddmess1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.downPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.adminPanel.SuspendLayout()
         Me.modifyPanel.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -687,16 +687,16 @@ Partial Class admin
         Me.adddmess1.TabIndex = 111
         Me.adddmess1.TabStop = False
         '
-        'PictureBox2
+        'downPictureBox
         '
-        Me.PictureBox2.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 628)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1260, 38)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 2
-        Me.PictureBox2.TabStop = False
+        Me.downPictureBox.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.downPictureBox.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.downPictureBox.Location = New System.Drawing.Point(0, 628)
+        Me.downPictureBox.Name = "downPictureBox"
+        Me.downPictureBox.Size = New System.Drawing.Size(1260, 38)
+        Me.downPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.downPictureBox.TabIndex = 2
+        Me.downPictureBox.TabStop = False
         '
         'Timer1
         '
@@ -2267,9 +2267,9 @@ Partial Class admin
         Me.版本信息Label.AutoSize = True
         Me.版本信息Label.Location = New System.Drawing.Point(110, 385)
         Me.版本信息Label.Name = "版本信息Label"
-        Me.版本信息Label.Size = New System.Drawing.Size(98, 18)
+        Me.版本信息Label.Size = New System.Drawing.Size(116, 18)
         Me.版本信息Label.TabIndex = 110
-        Me.版本信息Label.Text = "2.5.16.4.8"
+        Me.版本信息Label.Text = "2.5.160408.6"
         '
         '人员姓名Label
         '
@@ -2588,10 +2588,9 @@ Partial Class admin
         Me.Controls.Add(Me.addPanel)
         Me.Controls.Add(Me.messPanel)
         Me.Controls.Add(Me.time)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.downPictureBox)
         Me.Controls.Add(Me.aboutPanel)
         Me.Controls.Add(Me.suggestPanel)
-        Me.Controls.Add(Me.loginPanel)
         Me.Controls.Add(Me.newuserPanel)
         Me.Controls.Add(Me.adminPanel)
         Me.Controls.Add(Me.helpPanel)
@@ -2602,6 +2601,7 @@ Partial Class admin
         Me.Controls.Add(Me.dmPanel)
         Me.Controls.Add(Me.caddPanel)
         Me.Controls.Add(Me.daddPanel)
+        Me.Controls.Add(Me.loginPanel)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "admin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -2636,7 +2636,7 @@ Partial Class admin
         CType(Me.addcmess0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.addcmess1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.adddmess1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.downPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.adminPanel.ResumeLayout(False)
         Me.adminPanel.PerformLayout()
         Me.modifyPanel.ResumeLayout(False)
@@ -2697,7 +2697,7 @@ Partial Class admin
     Friend WithEvents including1 As PictureBox
     Friend WithEvents user1 As PictureBox
     Friend WithEvents add1 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents downPictureBox As PictureBox
     Friend WithEvents messPanel As Panel
     Friend WithEvents mess1 As PictureBox
     Friend WithEvents wmess0 As PictureBox
