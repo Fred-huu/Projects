@@ -103,13 +103,13 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         Try
             conn = New MySqlConnection("Data source=localhost;Initial Catalog=driver;" + "User ID=root;PWD=admin")
             conn.Open()
-            com = New MySqlCommand("Select * From 用户 Where 账号='" & USERTextBox.Text & "' And 密码='" & PasswordTextBox.Text & "'", conn)
+            com = New MySqlCommand("Select * From users Where user_id='" & USERTextBox.Text & "' And password='" & PasswordTextBox.Text & "'", conn)
             dr = com.ExecuteReader()
             If dr.Read() Then ' 表示有找到通过验证
                 loginPanel.Visible = False
                 menuPanel.Visible = True
                 adminPanel.Visible = True
-                UserLabel.Text = dr!姓名 & vbCrLf
+                UserLabel.Text = dr!username & vbCrLf
             Else
                 'MessageBox.Show("密码或用户名错误，请重新输入!", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 MessageBox.Show("你这个笨蛋！居然把密码（用户名）输错了!Orz", "错误提示!", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -144,7 +144,6 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         newpasswTextBox.Text = ""
         newapasswTextBox.Text = ""
         newnameTextBox.Text = ""
-        newaccessTextBox.Text = ""
     End Sub
 
     '-------------------------------------------
@@ -158,7 +157,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         Try
             conn = New MySqlConnection("Data source=localhost;Initial Catalog=driver;" + "User ID=root;PWD=admin")
             conn.Open()
-            com = New MySqlCommand("Select * From 用户 Where 账号='" & newuserTextBox.Text & "'", conn)
+            com = New MySqlCommand("Select * From users Where user_id='" & newuserTextBox.Text & "'", conn)
             dr = com.ExecuteReader()
 
             If newnameTextBox.Text = "" Or newuserTextBox.Text = "" Or newpasswTextBox.Text = "" Or newapasswTextBox.Text = "" Or newapasswTextBox.Text = "" Then
@@ -201,7 +200,7 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         Try
             conn = New MySqlConnection("Data source=localhost;Initial Catalog=driver;" + "User ID=root;PWD=admin")
             conn.Open()
-            com = New MySqlCommand("INSERT INTO driver.用户 (姓名,账号,密码,权限) VALUES ('" & newnameTextBox.Text & "','" & newuserTextBox.Text & "','" & newapasswTextBox.Text & "','" & newaccessTextBox.Text & "')", conn)
+            com = New MySqlCommand("INSERT INTO driver.users (username,user_id,password,perm) VALUES ('" & newnameTextBox.Text & "','" & newuserTextBox.Text & "','" & newapasswTextBox.Text & "',' 0 ')", conn)
             dr = com.ExecuteReader
             conn.Close()
         Catch myerror As MySqlException

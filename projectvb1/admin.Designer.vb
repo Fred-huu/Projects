@@ -234,14 +234,12 @@ Partial Class admin
         Me.newokButton = New System.Windows.Forms.Button()
         Me.newpasswTextBox = New System.Windows.Forms.TextBox()
         Me.newuserTextBox = New System.Windows.Forms.TextBox()
-        Me.newaccessTextBox = New System.Windows.Forms.TextBox()
         Me.newnameTextBox = New System.Windows.Forms.TextBox()
         Me.newapasswTextBox = New System.Windows.Forms.TextBox()
         Me.Label63 = New System.Windows.Forms.Label()
         Me.Label64 = New System.Windows.Forms.Label()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label66 = New System.Windows.Forms.Label()
-        Me.Label67 = New System.Windows.Forms.Label()
         Me.Label62 = New System.Windows.Forms.Label()
         Me.menuPanel.SuspendLayout()
         CType(Me.mess0, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2269,7 +2267,7 @@ Partial Class admin
         Me.版本信息Label.Name = "版本信息Label"
         Me.版本信息Label.Size = New System.Drawing.Size(116, 18)
         Me.版本信息Label.TabIndex = 110
-        Me.版本信息Label.Text = "2.5.160408.6"
+        Me.版本信息Label.Text = "2.5.160409.3"
         '
         '人员姓名Label
         '
@@ -2443,14 +2441,12 @@ Partial Class admin
         Me.newuserPanel.Controls.Add(Me.newokButton)
         Me.newuserPanel.Controls.Add(Me.newpasswTextBox)
         Me.newuserPanel.Controls.Add(Me.newuserTextBox)
-        Me.newuserPanel.Controls.Add(Me.newaccessTextBox)
         Me.newuserPanel.Controls.Add(Me.newnameTextBox)
         Me.newuserPanel.Controls.Add(Me.newapasswTextBox)
         Me.newuserPanel.Controls.Add(Me.Label63)
         Me.newuserPanel.Controls.Add(Me.Label64)
         Me.newuserPanel.Controls.Add(Me.Label65)
         Me.newuserPanel.Controls.Add(Me.Label66)
-        Me.newuserPanel.Controls.Add(Me.Label67)
         Me.newuserPanel.Controls.Add(Me.Label62)
         Me.newuserPanel.Location = New System.Drawing.Point(0, 0)
         Me.newuserPanel.Name = "newuserPanel"
@@ -2492,13 +2488,6 @@ Partial Class admin
         Me.newuserTextBox.Name = "newuserTextBox"
         Me.newuserTextBox.Size = New System.Drawing.Size(150, 28)
         Me.newuserTextBox.TabIndex = 115
-        '
-        'newaccessTextBox
-        '
-        Me.newaccessTextBox.Location = New System.Drawing.Point(602, 415)
-        Me.newaccessTextBox.Name = "newaccessTextBox"
-        Me.newaccessTextBox.Size = New System.Drawing.Size(150, 28)
-        Me.newaccessTextBox.TabIndex = 119
         '
         'newnameTextBox
         '
@@ -2555,16 +2544,6 @@ Partial Class admin
         Me.Label66.TabIndex = 123
         Me.Label66.Text = "姓名"
         '
-        'Label67
-        '
-        Me.Label67.AutoSize = True
-        Me.Label67.BackColor = System.Drawing.Color.Transparent
-        Me.Label67.Location = New System.Drawing.Point(480, 420)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(44, 18)
-        Me.Label67.TabIndex = 122
-        Me.Label67.Text = "权限"
-        '
         'Label62
         '
         Me.Label62.AutoSize = True
@@ -2591,7 +2570,6 @@ Partial Class admin
         Me.Controls.Add(Me.downPictureBox)
         Me.Controls.Add(Me.aboutPanel)
         Me.Controls.Add(Me.suggestPanel)
-        Me.Controls.Add(Me.newuserPanel)
         Me.Controls.Add(Me.adminPanel)
         Me.Controls.Add(Me.helpPanel)
         Me.Controls.Add(Me.wPanel)
@@ -2602,6 +2580,7 @@ Partial Class admin
         Me.Controls.Add(Me.caddPanel)
         Me.Controls.Add(Me.daddPanel)
         Me.Controls.Add(Me.loginPanel)
+        Me.Controls.Add(Me.newuserPanel)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "admin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -2898,13 +2877,11 @@ Partial Class admin
     Friend WithEvents newokButton As Button
     Friend WithEvents newpasswTextBox As TextBox
     Friend WithEvents newuserTextBox As TextBox
-    Friend WithEvents newaccessTextBox As TextBox
     Friend WithEvents newnameTextBox As TextBox
     Friend WithEvents newapasswTextBox As TextBox
     Friend WithEvents Label63 As Label
     Friend WithEvents Label64 As Label
     Friend WithEvents Label65 As Label
     Friend WithEvents Label66 As Label
-    Friend WithEvents Label67 As Label
     Friend WithEvents UserLabel As Label
 End Class
