@@ -12,8 +12,12 @@ Public Class Login
 
     Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Interval = 1000
-        Label4.Text = Now
+        Label4.Text = System.DateTime.Now
         Me.AcceptButton = OK
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Label4.Text = Now
     End Sub
 
     Private Sub OK_Click(sender As Object, e As EventArgs) Handles OK.Click
@@ -53,4 +57,6 @@ Public Class Login
         UserName.Show()
         Me.Close()
     End Sub
+
+
 End Class

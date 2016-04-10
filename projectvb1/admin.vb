@@ -42,7 +42,6 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
     '窗口界面
     Private Sub admin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Interval = 1000
-        time.Text = Now
 
         myPort = IO.Ports.SerialPort.GetPortNames()
         ComboBox1.Items.AddRange(myPort)
@@ -89,6 +88,11 @@ Err:    MsgBox("数据接收或显示错误！" + vbNewLine + ErrorToString())
         myPort = IO.Ports.SerialPort.GetPortNames()
         ComboBox1.Items.AddRange(myPort)
 
+    End Sub
+
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        time.Text = Now
     End Sub
 
     '-------------------------------------------
